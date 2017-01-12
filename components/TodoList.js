@@ -3,12 +3,18 @@ import React, { Component } from 'react';
 class TodoList extends Component{
 
     handleClick() {
-        this.props.deleteLetter();
+        this.props.deleteLetter();        
     }
 
     render() {
         return (
-            <div>This is the dodo list</div>                
+            <ul>
+                {
+                    this.props.todos.map((todo) => {
+                        return <li key={todo.id}>{todo.text}</li>
+                    })                    
+                }
+            </ul>
         )
     }
 }

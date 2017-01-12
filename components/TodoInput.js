@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoList from './TodoList';
+import actions from '../redux/actions';
 
 class TodoInput extends Component {
 
@@ -12,13 +12,13 @@ class TodoInput extends Component {
 
     handleChange(event) {
         this.setState({
-           inputText: event.target.value 
+           inputText: event.target.value
         });
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log('submit button clicked');
+        this.props.dispatch(actions.addTodo(this.state.inputText));
     }
 
     render() {
