@@ -1,4 +1,4 @@
-function getId(state) {
+/*function getId(state) {
     return state.todos.reduce((maxId, todo) => {
         return Math.max(todo.id, maxId);
     }, -1) + 1;
@@ -40,4 +40,4 @@ let reducer = function reducer(state, action) {
     }
 }
 
-export default reducer;
+export default reducer;*/
