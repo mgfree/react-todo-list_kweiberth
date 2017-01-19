@@ -1,6 +1,11 @@
-import { createStore } from 'redux';
-import reducer from './reducer';
+import {applyMiddleware, compose, createStore } from 'redux';
+import rootReducer from './reducers';
+import logger from 'redux-logger';
 
-export default function configureStore(initialState = {todos: [] }) {
-    return createStore(reducer, initialState);
+let finalCreateStore = compose(
+    applyMiddleware(logger())
+)(createStore)
+
+export default function configureStore(initialState = { todos: [], user: {} }) {
+    return finalCreateStore(rootReducer, initialState);
 }
